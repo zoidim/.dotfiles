@@ -42,13 +42,13 @@ NeoBundleCheck
 
 " Basic necessities
 syntax on
-set regexpengine=1  " Fix a bug with slow syntax highlighting in vim 7.4 
+set regexpengine=1  " Fix a bug with slow syntax highlighting in vim 7.4
 set hidden 				  " Allow multiple files open in one window.
 set wildmenu 				" Better command completion
 set showcmd				  " Current command feedback on last line of terminal
 set mouse=a         " All mouse functionality
-set history=50      " undo history
-set encoding=utf-8  
+set history=500     " undo history
+set encoding=utf-8
 set laststatus=2    " Show status bar even when only one window
 set cursorline      " Highlight currently selected line
 set number          " line numbers inline
@@ -78,10 +78,10 @@ set backspace=indent,eol,start " make backspace delete always not 'locked'
       en
       return ''
   endfunction
-  set statusline=%f\ [%{&ft}]\ %m%w\ 
+  set statusline=%f\ [%{&ft}]\ %m%w\
   set statusline+=%=
   set statusline+=%{GitBranch()}
-  set statusline+=\ %l\/%L          
+  set statusline+=\ %l\/%L
 " }}}
 
 " Search
@@ -205,9 +205,9 @@ nmap <leader>bn :bn<cr>
 nmap <leader>bs :<C-u>w<cr>:bp<cr>:bd#<cr>
 " save and close buffer
 nmap <leader>bc :<C-u>bp<cr>:bd#<cr>
-" kill buffer (close w/o saving) 
+" kill buffer (close w/o saving)
 nmap <leader>bk :<C-u>bp<cr>:bd!#<cr>
 nnoremap <up> :bprev<CR>
 nnoremap <down> :bnext<CR>
 
-nnoremap <leader>e :<C-u>Explore<cr> 
+nnoremap <leader>e :<C-u>Explore<cr>

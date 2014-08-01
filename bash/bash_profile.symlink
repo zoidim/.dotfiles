@@ -6,20 +6,49 @@ source $HOME/.dotfiles/bash/bash_personal
 # might need to actually not symlink bash_profile but just
 # prepend the above to it as part of setup...
 
-PATH=/usr/local/bin:$PATH
-export PATH=$HOME/.bin:/usr/local/share/npm/bin:/usr/local/Cellar/python/2.7.1/bin:/usr/local/bin:$PATH
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
+### POSTGRES ###
+# Set the data location of postgres so you don't need it in your start/stop commands:
+export PGDATA='/usr/local/var/postgres/'
+# Increase the 2 kernel memory management values for postgres from very small, to ok values:
+#UPDATE: Shouldn't need these params. Re-installing postgres from brew fixed this issue:
+#sudo sysctl -w kern.sysv.shmall=65536
+#sudo sysctl -w kern.sysv.shmmax=16777216
+### END POSTGRES###
 
-export NODE_PATH=/usr/local/lib/node_modules
-export RUBYLIB="/usr/local/lib:$RUBYLIB"
-export PATH=/Library/Frameworks/GDAL.framework/Programs:$PATH
+# Running bundle install doesn't work for website because of libv8 needing native extensions.
+# This options fixes that:
+#export RUBYOPT=-rrubygems gem install therubyracer
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# Set coloured directory/file highlighting. See: http://geekology.co.za/article/2009/04/how-to-enable-terminals-directory-and-file-color-highlighting-in-mac-os-x
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+#export LSCOLORS=GxFxCxDxBxegedabagaced
 
-export JRUBY_OPTS=--1.8
-ws() { RUBY_NAME=${1:-jruby} && cd ~/ && cd ~/dev/website; }
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function into a shell session
+
+
+
+### Start Mark's Preferences ###
+
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+parse_git_remote() {
+    tmp=$(parse_git_branch)
+    return `cat .git/config | grep $tmp -A 4 | grep remote | head -1 | sed -e 's/remote = \(.*\)/\1/'`
+}
+
+get_rails_env() {
+    echo "e:$RAILS_ENV"
+}
+
+export PS1="\[\033[00m\]$\[\033[01;34m\] \W \[\033[31m\]\$(parse_git_branch) \[\033[33m\]\$(get_rails_env) \[\033[00m\]$\[\033[00m\] "
+export PATH=/Users/swrathal/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export HISTTIMEFORMAT="%h/%d - %H:%M:%S "
+
+source ~/bin/git-completion.bash
+
+### End Mark's Preferences ###
+

@@ -1,34 +1,31 @@
-# go to dotfiles directory
-alias gdf='cd $HOME/.dotfiles'
-
-# Fix less ANSI / Colours 
-alias less="less -R"
-
-# Ruby bundler
 alias be='bundle exec'
-
-# Rails
-alias ready_test='RAILS_ENV=test be rake db:drop db:setup --trace'
-alias sub='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-
-# Git 
-alias gs="git status"
-alias gh="git hist"
-alias gd="git diff"
-alias gds="git diff --staged"
-alias gpr="git pull --rebase"
-alias gitrmdel="git status | grep deleted | cut -c14- | xargs git rm"
-alias gitrmdbs="git reset db/schema.rb; git checkout db/schema.rb"
-alias githide='git update-index --assume-unchanged'
-alias gitunhide='git update-index --no-assume-unchanged'
-alias gitwhite='git diff -w --no-color | git apply --cached --ignore-whitespace'
-alias bee='~/beautify_git_hash.py bee | tail -n1 | sh'
-alias beef='~/beautify_git_hash.py beef | tail -n1 | sh'
-# alias clean_branches='git br --merged | grep -v ^* | cut -c3- | xargs git br -d'
-
-# PostgreSQL
-alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-
-# Misc
-alias bigwag='jruby -J-Xmx4000m -S wag'
-alias diffmerge='/Applications/DiffMerge.app/Contents/MacOS/DiffMerge'
+alias e-zad='export RAILS_ENV=south_africa_development'
+alias e-zap='export RAILS_ENV=south_africa_production'
+alias e-zat='export RAILS_ENV=south_africa_test'
+alias e-usd='export RAILS_ENV=usa_development'
+alias e-usp='export RAILS_ENV=usa_production'
+alias e-aud='export RAILS_ENV=development'
+alias e-aup='export RAILS_ENV=production'
+alias e-aut='export RAILS_ENV=test'
+alias e-aus='export RAILS_ENV=staging'
+alias e-audt='export RAILS_ENV=devtest'
+alias grr='egrep "(Render|Started.* \"\/[^assets].*)|Completed.*"'
+alias ws='cd ~/code/website'
+alias bargains='~/bin/websites.sh'
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log'
+alias la='ls -al'
+alias brs='bundle exec rails s'
+alias brc='bundle exec rails c'
+alias ssh-staging='ssh ubuntu@54.252.134.23'
+alias ssh-prod='ssh ubuntu@54.252.156.119'
+alias gl-pretty='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
+alias jrubyrs7='rvm use jruby-1.7.2 && jruby -J-Dlog4j.configuration=config/log4j.properties -S rails s -p 3001'
+alias jrubyrs6='rvm use jruby-1.6.8 && jruby -J-Dlog4j.configuration=config/log4j.properties -S rails s -p 3001'
+alias jrubyrs='jruby -J-Dlog4j.configuration=config/log4j.properties -S rails s -p 3001'
+alias startnginx='/usr/local/sbin/nginx'
+alias stopnginx='kill `cat /usr/local/var/run/nginx.pid`'
+alias restartnginx='stopnginx; startnginx'
+alias format='./script/format_stacktrace.rb'
+alias bin='bundle install && npm install'

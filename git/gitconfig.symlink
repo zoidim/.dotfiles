@@ -1,33 +1,33 @@
 [user]
-	name = Jack Casey
-	email = jack.casey@agworld.com.au
+	name = Stephen Wrathall
+	email = stephen.wrathall@agworld.com.au
 [alias]
 	co = checkout
-	br = branch
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-	throwitallaway = !git reset --hard $(git rev-list --max-count=1 --simplify-by-decoration HEAD^)
-	out = !git hist --boundary $(git rev-list --max-count=1 --simplify-by-decoration HEAD^)..
+	unpushed = log --branches --not --remotes --simplify-by-decoration --decorate --oneline
 [color]
 	ui = true
+[credential]
+	helper = osxkeychain
+[core]
+	editor = vim
 [github]
-	user = jackcasey
+	user = stwr667
 [merge]
-  keepBackup = false;
+	keepBackup = false;
 	tool = diffmerge
-	defaultToUpstream = true
-[rerere]
-	enabled = 1
 [push]
 	default = upstream
 [mergetool "diffmerge"]
 	cmd = diffmerge --merge\n--result=$MERGED $LOCAL $BASE $REMOTE
 	trustExitCode = true
+[mergetool "p4merge"]
+	cmd = p4merge $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = false
+	keepTemporaries = false
+	keepBackup = false
 [diff]
 	tool = diffmerge
 [difftool "diffmerge"]
 	cmd = diffmerge $LOCAL $REMOTE
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
-[mergetool]
-	keepBackup = false
+
