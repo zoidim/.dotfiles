@@ -57,6 +57,7 @@ set nowrap          " don't soft wrap long lines
 set timeoutlen=500  " ms wait before giving up on sequenced shortcuts
 set backupdir=/tmp  " Leave .tmp files tidily away in /tmp
 set directory=/tmp
+set whichwrap=h,l,~,[,],<,> " Make h & l keystrokes to wrap over lines
 
 " Better tabs
 set tabstop=2                  " Show tabs as 2 characters wide
@@ -82,7 +83,7 @@ set backspace=indent,eol,start " make backspace delete always not 'locked'
   set statusline=%f\ [%{&ft}]\ %m%w\
   set statusline+=%=
   set statusline+=%{GitBranch()}
-  set statusline+=\ %l\/%L
+  set statusline+=\ %l\/%L:%v
 " }}}
 
 " Search
