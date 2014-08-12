@@ -47,12 +47,12 @@ syntax on
 set hidden 				  " Allow multiple files open in one window.
 set wildmenu 				" Better command completion
 set showcmd				  " Current command feedback on last line of terminal
-set mouse=a         " All mouse functionality
+set mouse=n         " a = All mouse functionality | n = Normal mouse functionality
 set history=500     " undo history
 set encoding=utf-8
 set laststatus=2    " Show status bar even when only one window
 set cursorline      " Highlight currently selected line
-set number          " line numbers inline
+" set number          " line numbers inline " Don't use line numbers so i can copy easily.
 set nowrap          " don't soft wrap long lines
 set timeoutlen=500  " ms wait before giving up on sequenced shortcuts
 set backupdir=/tmp  " Leave .tmp files tidily away in /tmp
