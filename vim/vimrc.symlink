@@ -58,6 +58,7 @@ set timeoutlen=500  " ms wait before giving up on sequenced shortcuts
 set backupdir=/tmp  " Leave .tmp files tidily away in /tmp
 set directory=/tmp
 set whichwrap=h,l,~,[,],<,> " Make h & l keystrokes to wrap over lines
+set textwidth=120   " Set the column wrapping width to 120 chars. (:set paste will unenforce (! re-enforce))
 
 " Better tabs
 set tabstop=2                  " Show tabs as 2 characters wide
