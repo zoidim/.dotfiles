@@ -214,3 +214,7 @@ nnoremap <up> :bprev<CR>
 nnoremap <down> :bnext<CR>
 
 nnoremap <leader>e :<C-u>Explore<cr>
+
+" This needs to be at the end of the file, so it's not re-overridden:
+set paste " Disable auto indenting. Annoying when pasting. Although may want to change this back!
+
