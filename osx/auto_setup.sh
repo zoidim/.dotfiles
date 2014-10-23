@@ -26,3 +26,7 @@ defaults write -g KeyRepeat -int 2            # normal minimum is 2 (30 ms)
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+# Shot all dot files in finder
+defaults write com.apple.finder AppleShowAllFiles -bool YES
+
