@@ -6,6 +6,8 @@ source $HOME/.dotfiles/bash/bash_personal
 # might need to actually not symlink bash_profile but just
 # prepend the above to it as part of setup...
 
+# Now with the config refactor, we need to explicitly set our rails env:
+export RAILS_ENV=development
 
 ### POSTGRES ###
 # Set the data location of postgres so you don't need it in your start/stop commands:
@@ -42,7 +44,12 @@ parse_git_remote() {
 }
 
 get_rails_env() {
-    echo "e:$RAILS_ENV"
+    if [ $RAILS_ENV == "development" ]; then
+      tmp=dev
+    else
+      tmp=$RAILS_ENV
+    fi
+    echo "e:$tmp"
 }
 
 export PS1="\[\033[00m\]$\[\033[01;34m\] \W \[\033[31m\]\$(parse_git_branch) \[\033[33m\]\$(get_rails_env) \[\033[00m\]$\[\033[00m\] "
