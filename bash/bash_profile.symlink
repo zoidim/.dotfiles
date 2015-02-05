@@ -50,7 +50,11 @@ get_region_and_rails_env() {
       rails_env_tmp=$RAILS_ENV
     fi
 
-    echo "$AGW_region:$rails_env_tmp"
+    if [ -n "$AGW_database_name" ]; then
+      append_db_name_tmp=":$AGW_database_name"
+    fi
+
+    echo "$AGW_region:$rails_env_tmp$append_db_name_tmp"
 }
 
 export PS1="\[\033[00m\]$\[\033[01;34m\] \W \[\033[31m\]\$(parse_git_branch) \[\033[33m\]\$(get_region_and_rails_env) \[\033[00m\]$\[\033[00m\] "
