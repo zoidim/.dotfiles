@@ -35,7 +35,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 ### Start Mark's Preferences ###
 
 parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 parse_git_remote() {
@@ -44,6 +44,9 @@ parse_git_remote() {
 }
 
 get_region_and_rails_env() {
+  if [ "$RAILS_ENV" == "" -o "$AGW_region" == "" ]; then
+    return
+  else
     if [ "$RAILS_ENV" == "development" -a "$AGW_region" == "au" ]; then
       rails_env_tmp=dev
     else
@@ -54,10 +57,11 @@ get_region_and_rails_env() {
       append_db_name_tmp=":$AGW_database_name"
     fi
 
-    echo "$AGW_region:$rails_env_tmp$append_db_name_tmp"
+    echo " $AGW_region:$rails_env_tmp$append_db_name_tmp"
+  fi
 }
 
-export PS1="\[\033[00m\]$\[\033[01;34m\] \W \[\033[31m\]\$(parse_git_branch) \[\033[33m\]\$(get_region_and_rails_env) \[\033[00m\]$\[\033[00m\] "
+export PS1="\[\033[01;34m\]\W\[\033[31m\]\$(parse_git_branch)\[\033[33m\]\$(get_region_and_rails_env) \[\033[00m\]$\[\033[00m\] "
 export PATH=/Users/swrathal/bin:/usr/local/bin:/usr/local/sbin:$PATH:./node_modules/.bin
 export HISTTIMEFORMAT="%h/%d - %H:%M:%S "
 
