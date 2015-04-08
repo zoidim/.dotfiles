@@ -16,6 +16,7 @@
 [merge]
 	keepBackup = false;
 	tool = diffmerge
+	defaultToUpstream = true
 [push]
 	default = upstream
 [mergetool "diffmerge"]
