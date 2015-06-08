@@ -71,6 +71,8 @@ set backspace=indent,eol,start " make backspace delete always not 'locked'
 " Statusline {{{
   function! GitBranch()
       " let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
+      " NOTE! If you get errors on the next line when installing vim, just comment out
+      " down the end of the method and return ''. :D
       let branch = fugitive#statusline()
       if branch != ''
           let branch = substitute(branch, '\n', '', 'g')
