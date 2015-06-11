@@ -30,7 +30,8 @@ end try
 try
 tell application "iTerm"
     activate
-    set the bounds of the first window to {-950, -331, 0, 420}
+    # Note that for iTerm, it's worth getting coords exact so that manual resizing doesn't snap to a different size.
+    set the bounds of the first window to {-976, -331, 0, 414}
 end tell
 end try
 
@@ -44,7 +45,7 @@ end try
 #     tell chat windows
 #         set the bounds to {1281, 800, 1800, 1200}
 #     end tell
-# 
+#
 # end tell
 # end try
 
