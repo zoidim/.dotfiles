@@ -31,7 +31,7 @@ try
 tell application "iTerm"
     activate
     # Note that for iTerm, it's worth getting coords exact so that manual resizing doesn't snap to a different size.
-    set the bounds of the first window to {-976, -331, 0, 414}
+    set the bounds of the first window to {-991, -331, 0, 414}
 end tell
 end try
 
