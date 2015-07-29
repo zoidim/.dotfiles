@@ -1,10 +1,11 @@
 #!/usr/bin/osascript
 # Format: {left_side_x_coord, top_y_coord, right_side_x_coord, bottom_y_coord}
+# NOTE: these are triggers by keyboard shortcuts defined in BetterTouchTool
 
 try
 tell application "Notes"
     activate
-    set the bounds of the first window to {-890, -331, 0, 450}
+    set the bounds of the first window to {776, -1057, 1666, -276}
     #get the bounds of the first window
 end tell
 end try
@@ -12,18 +13,17 @@ end try
 try
 tell application "TextEdit"
     activate
-    # set the bounds of the first window to {-690, 420, 0, 750}  # 1
-    # set the bounds of the first window to {-690, 684, 0, 1012} # 2
-    set the bounds of the first window to {-690, 773, 0, 1080}   # 3
+    set the bounds of the first window to {975, -300, 1666, 0}
+    set the bounds of the second window to {975, -400, 1666, -100}
 end tell
 end try
 
 try
 tell application "Chrome"
     activate
-    set the bounds of the first window to {-1920, -331, -690, 750}
-    set the bounds of the second window to {-1920, -331, -690, 750}
-    set the bounds of the third window to {-1920, -331, -690, 750}
+    set the bounds of the first window to {-254, -1057, 975, 0}
+    set the bounds of the second window to {-254, -1057, 975, 0}
+    set the bounds of the third window to {-254, -1057, 975, 0}
 end tell
 end try
 
@@ -31,7 +31,7 @@ try
 tell application "iTerm"
     activate
     # Note that for iTerm, it's worth getting coords exact so that manual resizing doesn't snap to a different size.
-    set the bounds of the first window to {-991, -331, 0, 414}
+    set the bounds of the first window to {680, -1057, 1666, -300}
 end tell
 end try
 
