@@ -13,8 +13,8 @@ end try
 try
 tell application "TextEdit"
     activate
-    set the bounds of the first window to {975, -300, 1666, 0}
-    set the bounds of the second window to {975, -400, 1666, -100}
+    set the bounds of the first window to {975, -310, 1666, 0}
+    set the bounds of the second window to {975, -410, 1666, -100}
 end tell
 end try
 
@@ -31,7 +31,7 @@ try
 tell application "iTerm"
     activate
     # Note that for iTerm, it's worth getting coords exact so that manual resizing doesn't snap to a different size.
-    set the bounds of the first window to {680, -1057, 1666, -300}
+    set the bounds of the first window to {680, -1057, 1666, -310}
 end tell
 end try
 
