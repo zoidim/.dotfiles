@@ -15,7 +15,7 @@
 	user = stwr667
 [merge]
 	keepBackup = false;
-	tool = diffmerge
+	tool = p4merge
 	defaultToUpstream = true
 [push]
 	default = upstream
