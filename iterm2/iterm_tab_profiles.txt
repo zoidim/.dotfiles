@@ -12,7 +12,7 @@ cd code/website_duplicate2; echo -e "\033]6;1;bg;green;brightness;200\a"; echo -
 
 == docsplitLoggerTab ==
 Send text at start:
-cd code/docsplit-server; echo -e "\033]6;1;bg;blue;brightness;85\a"; echo -e "\033]6;1;bg;red;brightness;217\a"; echo -e "\033]6;1;bg;green;brightness;170\a"; tail -f log/development.log
+cd code/docsplit-server; echo -e "\033]6;1;bg;blue;brightness;54\a"; echo -e "\033]6;1;bg;red;brightness;217\a"; echo -e "\033]6;1;bg;green;brightness;160\a"; tail -f log/development.log
 
 == websiteFormatStacktraceTab ==
 Send text at start:
