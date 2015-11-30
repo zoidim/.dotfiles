@@ -1,15 +1,20 @@
 {
+  "color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
   "copy_with_empty_selection": false,
   "enable_tab_scrolling": false,
   "font_size": 13,
   "highlight_modified_tabs": true,
   "ignored_packages":
   [
-    "Vintage",
-    "SublimeLinter"
+    "Markdown",
+    "SublimeLinter",
+    "Vintage"
   ],
   "show_full_path": true,
   "tab_size": 2,
   "translate_tabs_to_spaces": true,
-  "trim_trailing_white_space_on_save": true
+  "trim_trailing_white_space_on_save": true,
+
+  // Adds two vertical rulers: one at column 80 and one at column 120
+  "rulers": [120]
 }
