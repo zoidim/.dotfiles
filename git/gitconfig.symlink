@@ -23,7 +23,9 @@
 	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
 	trustExitCode = true
 [mergetool "p4merge"]
-	cmd = p4merge $BASE $LOCAL $REMOTE $MERGED
+#  cmd = p4merge $BASE $LOCAL $REMOTE $MERGED
+# This command opens the mergetool view + 2 diffs of the base to local & remote. It waits for all to close:
+	cmd = p4merge $BASE $LOCAL $REMOTE $MERGED & diffmerge $BASE $LOCAL & diffmerge $BASE $REMOTE & wait
 	trustExitCode = false
 	keepTemporaries = false
 	keepBackup = false
