@@ -4,7 +4,7 @@
 
 try
 tell application "Notes"
-    activate
+#    activate   # Don't start it if it's already quit
     set the bounds of the first window to {776, -1057, 1666, -276}
     #get the bounds of the first window
 end tell

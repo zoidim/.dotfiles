@@ -4,7 +4,7 @@
 
 try
 tell application "Notes"
-    activate
+#    activate  # Don't start it if it's already quit.
     set the bounds of the first window to {-890, -331, 0, 450}
     #get the bounds of the first window
 end tell
@@ -13,10 +13,10 @@ end try
 try
 tell application "TextEdit"
     activate
-    # set the bounds of the first window to {-690, 420, 0, 750}  # 1
-    # set the bounds of the first window to {-690, 684, 0, 1012} # 2
-    set the bounds of the first window to {-690, 773, 0, 1080}   # 3
-    set the bounds of the second window to {-690, 873, 0, 1180}   # 3
+    set the bounds of the first window to {-690, 420, 0, 750}  # 1
+    set the bounds of the first window to {-690, 699, 0, 1012} # 2
+    # set the bounds of the first window to {-690, 773, 0, 1080}   # 3
+    # set the bounds of the second window to {-690, 873, 0, 1180}   # 3
 end tell
 end try
 
