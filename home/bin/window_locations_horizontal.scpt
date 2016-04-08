@@ -2,13 +2,13 @@
 # Format: {left_side_x_coord, top_y_coord, right_side_x_coord, bottom_y_coord}
 # NOTE: these are triggers by keyboard shortcuts defined in BetterTouchTool
 
-try
-tell application "Notes"
-#    activate  # Don't start it if it's already quit.
-    set the bounds of the first window to {-890, -331, 0, 450}
-    #get the bounds of the first window
-end tell
-end try
+# try
+# tell application "Notes"
+# #    activate  # Don't start it if it's already quit.
+#     set the bounds of the first window to {-890, -331, 0, 450}
+#     #get the bounds of the first window
+# end tell
+# end try
 
 try
 tell application "TextEdit"
