@@ -30,6 +30,8 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function into a shell session
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting  # This was put in .profile for the latest install (Oct/2014)
 
+export NVM_DIR="/Users/stephen/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
 ### Start Mark's Preferences ###
