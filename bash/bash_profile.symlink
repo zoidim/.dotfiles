@@ -30,8 +30,6 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function into a shell session
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting  # This was put in .profile for the latest install (Oct/2014)
 
-
-
 ### Start Mark's Preferences ###
 
 parse_git_branch() {
@@ -65,7 +63,10 @@ export PS1="\[\033[01;34m\]\W\[\033[31m\]\$(parse_git_branch)\[\033[33m\]\$(get_
 export PATH=/Users/swrathal/bin:/usr/local/bin:/usr/local/sbin:$PATH:./node_modules/.bin
 export HISTTIMEFORMAT="%h/%d - %H:%M:%S "
 
+# This must be below the PATH command above, otherwise the 'node' in /usr/local/bin overrides nvm:
+export NVM_DIR="/Users/stephen/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 source ~/bin/git-completion.bash
 
 ### End Mark's Preferences ###
-
