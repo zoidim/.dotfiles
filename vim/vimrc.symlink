@@ -77,5 +77,5 @@ set whichwrap=h,l,~,[,],<,>
 " This needs to be at the end of the file, so it's not re-overridden:
 set paste " Disable auto indenting. Annoying when pasting. Although may want to change this back!
 
-" Don't really like this, but the other ones I liked in ~/.vim/colors  don't work:
-colorscheme py-darcula
+" Colorschemes are downloaded to: ~/.vim/colors
+colorscheme PerfectDark
