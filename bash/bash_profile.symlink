@@ -27,8 +27,7 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 #export LSCOLORS=GxFxCxDxBxegedabagaced
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function into a shell session
-# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting  # This was put in .profile for the latest install (Oct/2014)
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting  # This was put in .profile for the latest install (Oct/2014) # Now (Jun/2016) it seems to be in ~/.bashrc
 
 ### Start Mark's Preferences ###
 
@@ -70,3 +69,6 @@ export NVM_DIR="$HOME/.nvm"
 source ~/bin/git-completion.bash
 
 ### End Mark's Preferences ###
+
+# rvm needs to be at the bottom of the file in case there are other lines in .[ba|z]shrc that redefine path:
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function into a shell session
