@@ -64,7 +64,7 @@ export PATH=/Users/swrathal/bin:/usr/local/bin:/usr/local/sbin:$PATH:./node_modu
 export HISTTIMEFORMAT="%h/%d - %H:%M:%S "
 
 # This must be below the PATH command above, otherwise the 'node' in /usr/local/bin overrides nvm:
-export NVM_DIR="~/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 source ~/bin/git-completion.bash
