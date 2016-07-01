@@ -24,6 +24,7 @@ alias gb-recent='for ref in $(git for-each-ref --sort=-committerdate --format="%
 alias la='ls -al'
 alias brs='bundle exec rails s'
 alias brc='bundle exec rails c'
+alias brcs='spring stop && bundle exec rails c'
 alias ssh-staging='ssh ubuntu@54.252.134.23'
 alias ssh-prod='ssh ubuntu@db01'
 alias ssh-us='ssh ubuntu@db01-us'
