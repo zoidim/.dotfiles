@@ -1,4 +1,6 @@
 "*":
+  "activate-power-mode":
+    autoToggle: false
   "exception-reporting":
     userId: "d671f9f3-1eff-8ad5-bcf4-867c4c413247"
   welcome:

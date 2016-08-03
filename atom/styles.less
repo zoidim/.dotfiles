@@ -30,3 +30,8 @@ atom-text-editor {
 atom-text-editor::shadow .cursor {
   // border-color: red;
 }
+
+// Make the unsaved-changes blue icon bigger to be more obvious
+.tab-bar .tab.modified:not(:hover) .close-icon {
+  transform: scale(1.3);
+}
