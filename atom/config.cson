@@ -4,6 +4,13 @@
   "atom-beautify":
     general:
       _analyticsUserId: "685322f1-fe33-4a0a-a771-8ff54cf1c10d"
+      beautifyEntireFileOnSave: false
+    json:
+      indent_size: 2
+    ruby:
+      indent_size: 2
+    sql:
+      indent_size: 2
   core:
     audioBeep: false
     automaticallyUpdate: false
@@ -14,5 +21,9 @@
     tabType: "soft"
   "exception-reporting":
     userId: "d671f9f3-1eff-8ad5-bcf4-867c4c413247"
+  linter:
+    ignoreMatchedFiles: "**/schema.rb"
+    lintOnFly: false
+    showErrorPanel: false
   welcome:
     showOnStartup: false
