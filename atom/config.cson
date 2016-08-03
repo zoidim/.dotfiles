@@ -1,6 +1,17 @@
 "*":
   "activate-power-mode":
     autoToggle: false
+  "atom-beautify":
+    general:
+      _analyticsUserId: "685322f1-fe33-4a0a-a771-8ff54cf1c10d"
+  core:
+    audioBeep: false
+    automaticallyUpdate: false
+    projectHome: "/Users/swrathal/code"
+  editor:
+    preferredLineLength: 120
+    showIndentGuide: true
+    tabType: "soft"
   "exception-reporting":
     userId: "d671f9f3-1eff-8ad5-bcf4-867c4c413247"
   welcome:
