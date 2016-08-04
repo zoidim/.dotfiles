@@ -11,6 +11,8 @@
       indent_size: 2
     sql:
       indent_size: 2
+    xml:
+      indent_size: 2
   core:
     audioBeep: false
     automaticallyUpdate: false
