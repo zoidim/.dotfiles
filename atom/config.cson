@@ -17,15 +17,23 @@
     audioBeep: false
     automaticallyUpdate: false
     projectHome: "/Users/swrathal/code"
+    themes: [
+      "one-dark-ui"
+      "monokai"
+    ]
   editor:
     preferredLineLength: 120
     showIndentGuide: true
     tabType: "soft"
   "exception-reporting":
     userId: "d671f9f3-1eff-8ad5-bcf4-867c4c413247"
+  "find-and-replace":
+    scrollToResultOnLiveSearch: true
   linter:
     ignoreMatchedFiles: "**/schema.rb"
     lintOnFly: false
     showErrorPanel: false
   welcome:
     showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false

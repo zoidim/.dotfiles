@@ -35,3 +35,8 @@ atom-text-editor::shadow .cursor {
 .tab-bar .tab.modified:not(:hover) .close-icon {
   transform: scale(1.3);
 }
+
+// Hide the close (x) tab button on hover. Just rely on Command+W or Middle click
+.tab-bar .tab:hover .close-icon {
+  z-index: -2;
+}
