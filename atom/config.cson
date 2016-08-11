@@ -5,6 +5,10 @@
     general:
       _analyticsUserId: "685322f1-fe33-4a0a-a771-8ff54cf1c10d"
       beautifyEntireFileOnSave: false
+    js:
+      end_with_newline: true
+      indent_size: 2
+      wrap_line_length: 120
     json:
       indent_size: 2
     ruby:

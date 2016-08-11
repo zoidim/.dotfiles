@@ -40,3 +40,20 @@ atom-text-editor::shadow .cursor {
 .tab-bar .tab:hover .close-icon {
   z-index: -2;
 }
+
+// Infinite atom tabs, wrapped vertically
+// For other options, see this thread:
+// https://github.com/atom/tabs/issues/136#issuecomment-203740282
+.tab-bar {
+  -webkit-flex-wrap: wrap;
+  height: auto;
+  .tab, .tab.active {
+    -webkit-flex: initial;
+    .title {
+      // removing the mask is optional but not really needed in this mode.
+      -webkit-mask: none;
+      // for fixed width tabs, uncomment:
+      // max-width: 11ch;
+    }
+  }
+}
