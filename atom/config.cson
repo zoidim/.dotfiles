@@ -36,8 +36,12 @@
   "find-and-replace":
     scrollToResultOnLiveSearch: true
   linter:
+    gutterEnabled: false
     ignoreMatchedFiles: "**/@(schema|main_menu).rb"
+    lintOnFly: false
     showErrorPanel: false
+  "linter-rubocop":
+    command: "rubocop -c /Users/swrathal/code/website/.rubocop.yml"
   "toggle-quotes": {}
   welcome:
     showOnStartup: false
