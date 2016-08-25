@@ -28,6 +28,7 @@
       "monokai"
     ]
   editor:
+    fontSize: 13
     preferredLineLength: 120
     showIndentGuide: true
     tabType: "soft"
