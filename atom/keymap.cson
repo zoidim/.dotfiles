@@ -34,3 +34,8 @@
 'atom-workspace':
   'cmd-shift-i': 'fuzzy-finder:toggle-git-status-finder'
   'cmd-shift-b': 'fuzzy-finder:toggle-git-status-finder'
+
+'atom-text-editor':
+  # Ensure that Copy does nothing when nothing is selected.
+  'cmd-c': 'editor:copy-selection'    # mac
+  'ctrl-c': 'editor:copy-selection'   # linux and windows
