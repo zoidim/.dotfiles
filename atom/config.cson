@@ -22,13 +22,15 @@
   core:
     audioBeep: false
     automaticallyUpdate: false
+    disabledPackages: [
+      "spell-check"
+    ]
     projectHome: "/Users/swrathal/code"
     themes: [
       "one-dark-ui"
       "monokai"
     ]
   editor:
-    fontSize: 13
     preferredLineLength: 120
     showIndentGuide: true
     tabType: "soft"
@@ -48,6 +50,12 @@
     showOnStartup: false
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
+".cucumber.rspec.ruby.source.steps":
+  editor:
+    preferredLineLength: 120
+".feature.gherkin.text":
+  editor:
+    preferredLineLength: 120
 ".html.ruby.text":
   editor:
     preferredLineLength: 120
