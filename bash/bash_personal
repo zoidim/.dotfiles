@@ -7,3 +7,6 @@ export EDITOR=sublime
 
 # load all my aliases
 source $HOME/.dotfiles/bash/bash_aliases
+
+# Important for easy setting of terminal colours. Needed now for tig colours to work:
+export TERM=xterm-256color

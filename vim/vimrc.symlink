@@ -1,222 +1,174 @@
-autocmd! bufwritepost .vimrc source %
+"These are my preferences for my vim files.
 
-if has('vim_starting')
-	set nocompatible
+"This positions the window in the top-left corner of the screen
+"winpos 0 0
 
-	" Required:
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
+"Set the default window size:
+"set lines=32 columns=80
+
+"Line Numbers
+set nu
+
+"Don't wrap text.
+set wrap!
+
+"Set a nice Font
+set guifont=Bitstream\ Vera\ Sans\ Mono:h10
+
+"Good tabs
+set autoindent
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+"Mappings
+noremap <space> <PageDown>
+noremap <BS> <PageUp>
+
+"Y by default is incongruous with C and D, in that it yanks a complete
+"line (duplicating yy) rather than yanking to the end of the line.
+"This fixes that:
+noremap Y y$
+
+"Macros for stuff
+:ab #b /************************************************
+:ab #e ************************************************/
+:ab #i #include
+:ab #l /*----------------------------------------------*/
+
+"Increase history
+set history=500
+
+"Set the place where all the VIM backup files are stored:
+"set backupdir=C:\Temp\VimBackupFiles
+
+"Let %% expand to the current path. E.g. :e %%\    (expands)
+cabbr <expr> %% expand('%:p:h')
+
+"END MY PREFERENCES
+
+
+"source $VIMRUNTIME/vimrc_example.vim
+
+
+"BEGIN vimrc_example.vim COPY
+" When started as "evim", evim.vim will already have done these settings.
+if v:progname =~? "evim"
+  finish
 endif
 
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
 
-" Neobundle all the things {{{
-  call neobundle#begin(expand('~/.vim/bundle'))
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 
-  " Neobundle bundle's itself
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  " My Bundles here:
+if has("vms")
+  set nobackup    " do not keep a backup file, use versions instead
+else
+  set backup    " keep a backup file
+endif
+set ruler   " show the cursor position all the time
+set showcmd   " display incomplete commands
+set incsearch   " do incremental searching
 
-  NeoBundle 'Shougo/vimproc.vim', {
-        \ 'build' : {
-        \     'windows' : 'tools\\update-dll-mingw',
-        \     'cygwin' : 'make -f make_cygwin.mak',
-        \     'mac' : 'make -f make_mac.mak',
-        \     'unix' : 'make -f make_unix.mak',
-        \    },
-        \ }
+" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
+" let &guioptions = substitute(&guioptions, "t", "", "g")
 
-  NeoBundle 'Shougo/unite.vim'
-  NeoBundle 'Shougo/neomru.vim'
-  NeoBundle 'Shougo/unite-outline'
-  NeoBundle 'altercation/vim-colors-solarized'
-  NeoBundle 'Lokaltog/vim-distinguished'
-  NeoBundle 'tpope/vim-fugitive.git'
-  NeoBundle 'tpope/vim-commentary.git'          " gcc gcap gcgc
-  NeoBundle 'scrooloose/syntastic'              " Syntax checking via external tools
+" Don't use Ex mode, use Q for formatting
+map Q gq
 
-  call neobundle#end()
-" }}}
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
 
-filetype indent plugin on
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  "set mouse=a
+  "set mouse=n " SW: This is better that 'a', but none is even better!
+endif
 
-" Install uninstalled bundles on startup
-NeoBundleCheck
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
 
-" Basic necessities
-syntax on
-"set regexpengine=1  " Fix a bug with slow syntax highlighting in vim 7.4
-set hidden 				  " Allow multiple files open in one window.
-set wildmenu 				" Better command completion
-set showcmd				  " Current command feedback on last line of terminal
-set mouse=n         " a = All mouse functionality | n = Normal mouse functionality
-set history=500     " undo history
-set encoding=utf-8
-set laststatus=2    " Show status bar even when only one window
-set cursorline      " Highlight currently selected line
-" set number          " line numbers inline " Don't use line numbers so i can copy easily.
-set nowrap          " don't soft wrap long lines
-set timeoutlen=500  " ms wait before giving up on sequenced shortcuts
-set backupdir=/tmp  " Leave .tmp files tidily away in /tmp
-set directory=/tmp
-set whichwrap=h,l,~,[,],<,> " Make h & l keystrokes to wrap over lines
-set textwidth=120   " Set the column wrapping width to 120 chars. (:set paste will unenforce (! re-enforce))
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
 
-" Better tabs
-set tabstop=2                  " Show tabs as 2 characters wide
-set shiftwidth=2               " Use 2 spaces per indent
-set expandtab                  " Insert spaces for tabs
-set autoindent                 " Newlines will start auto indented
-set smartindent                " Be smart about indenting blocks in c-like languages
-set backspace=indent,eol,start " make backspace delete always not 'locked'
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
 
-" Statusline {{{
-  function! GitBranch()
-      " let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
-      " NOTE! If you get errors on the next line when installing vim, just comment out
-      " down the end of the method and return ''. :D
-      let branch = fugitive#statusline()
-      if branch != ''
-          let branch = substitute(branch, '\n', '', 'g')
-          let branch = substitute(branch, 'Git', '', 'g')
-          let branch = substitute(branch, '[', '', 'g')
-          let branch = substitute(branch, ']', '', 'g')
-          return branch
-      en
-      return ''
-  endfunction
-  set statusline=%f\ [%{&ft}]\ %m%w\
-  set statusline+=%=
-  set statusline+=%{GitBranch()}
-  set statusline+=\ %l\/%L:%v
-" }}}
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+  au!
 
-" Search
-set ignorecase      " ignore case when searching etc
-set smartcase       " don't ignore case when search contains uppercase characters
-set hlsearch        " highlight last search results
-set incsearch       " incremental search
-set showmatch       " highlight matching parens
-set mat=5           " Highlight matching parens for .5s
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
 
-" Ignore patterns when globbing / autocompleting
-set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
-set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-set wildignore+=*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
-set wildignore+=*.swp,*~,._*
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  " Also don't do it when the mark is in the first line, that is the default
+  " position when opening a file.
+  "autocmd BufReadPost *
+  "  \ if line("'\"") > 1 && line("'\"") <= line("$") |
+  "  \   exe "normal! g`\"" |
+  "  \ endif
 
-" Colors
-" let g:solarized_termcolors=256
-set background=dark
-"colorscheme solarized
-let &t_SI = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-:autocmd InsertEnter,InsertLeave * set cul!
+  augroup END
 
-" Syntastic syntax checking
-let g:syntastic_ruby_checkers = ['rubocop']
+else
 
-" Unite {{{
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-  call unite#filters#sorter_default#use(['sorter_rank'])
-  " Custom mappings for the unite buffer
-  autocmd FileType unite call s:unite_settings()
-  function! s:unite_settings()
-    " Enable navigation with control-j and control-k in insert mode
-    imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-    imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-  endfunction
+  set autoindent    " always set autoindenting on
 
-  let g:unite_source_rec_async_command= 'ag --follow --nocolor --nogroup --hidden --ignore "node_modules" -g ""'
-  let g:unite_source_grep_command='ag'
-  let g:unite_source_grep_recursive_opt=''
-  let g:unite_source_grep_search_word_highlight = 1
-  let g:unite_source_grep_default_opts =
-  \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
-  \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' --ignore ''node_modules'''
-  let g:unite_source_grep_recursive_opt = ''
-  let g:unite_abbr_highlight = 1
+endif " has("autocmd")
 
-  " Unite
-  let g:unite_source_history_yank_enable = 1
-  nnoremap <c-p>    :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-  nnoremap <c-P>f    :<C-u>Unite -no-split -buffer-name=fs      file<cr>
-  nnoremap <c-P>g    :<C-u>Unite -no-split -buffer-name=grep    grep<cr>
-  nnoremap <c-P>r    :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-  nnoremap <c-P>o    :<C-u>Unite -no-split -buffer-name=outline outline<cr>
-  nnoremap <c-P>y    :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-  nnoremap <c-P>b    :<C-u>Unite -no-split -buffer-name=buffer  -start-insert buffer<cr>
-  nnoremap <RIGHT>   :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
-  nnoremap <LEFT>    :<C-u>Unite -no-split -buffer-name=mru     file_mru<cr>
-" }}}
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+      \ | wincmd p | diffthis
+endif
+"END vimrc_example.vim COPY
 
-" Strip trailing whitespace
-function! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
+
+
+set nocompatible
+"source $VIMRUNTIME/mswin.vim
+"behave mswin
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  if &sh =~ '\<cmd'
+    silent execute '!""C:\Program Files\Vim\vim63\diff" ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . '"'
+  else
+    silent execute '!C:\Program" Files\Vim\vim63\diff" ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+  endif
 endfunction
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-"  ***********
-"  My keybinds
-"  ***********
-
-" Edit vimrc quickly
-map <leader>ev :e ~/.vimrc<cr>
-
-
-" space to clear search results
-nnoremap <space> :noh<esc>
-
-" Smash escape
-" inoremap jk <esc>
-" inoremap kj <esc>
-
-" shortcuts for windows
-nnoremap <leader>v <C-w>v<C-w>l
-nnoremap <leader>s <C-w>s
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
-" window resizing
-nnoremap <C-w>a :<C-u>vert sba 2<CR>
-nnoremap <silent> <Leader>= :vertical resize +25<CR>
-nnoremap <silent> <Leader>- :vertical resize -25<CR>
-nnoremap <silent> <Leader>+ :resize +5<CR>
-nnoremap <silent> <Leader>_ :resize -5<CR>
-
-" Buffer management
-" write current buffer
-nnoremap <leader>w :w<cr>
-" switch to last buffer
-nnoremap <leader>bb :b#<cr>
-" Unite
-let g:unite_source_history_yank_enable = 1
-nnoremap <c-p>    :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-nnoremap <c-P>f    :<C-u>Unite -no-split -buffer-name=fs      file<cr>
-nnoremap <c-P>g    :<C-u>Unite -no-split -buffer-name=grep    grep<cr>
-nnoremap <c-P>r    :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <c-P>o    :<C-u>Unite -no-split -buffer-name=outline outline<cr>
-nnoremap <c-P>y    :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap <c-P>b    :<C-u>Unite -no-split -buffer-name=buffer  -start-insert buffer<cr>
-nnoremap <RIGHT>   :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
-nnoremap <LEFT>    :<C-u>Unite -no-split -buffer-name=mru     file_mru<cr>
-" switch to previous buffer
-nmap <leader>bp :bp<cr>
-" switch to next buffer
-nmap <leader>bn :bn<cr>
-" save and close buffer
-nmap <leader>bs :<C-u>w<cr>:bp<cr>:bd#<cr>
-" save and close buffer
-nmap <leader>bc :<C-u>bp<cr>:bd#<cr>
-" kill buffer (close w/o saving)
-nmap <leader>bk :<C-u>bp<cr>:bd!#<cr>
-nnoremap <up> :bprev<CR>
-nnoremap <down> :bnext<CR>
-
-nnoremap <leader>e :<C-u>Explore<cr>
+" Some more preferences, cause for some reason, they only work down here!
+"Make h & l keystrokes to wrap over lines
+set whichwrap=h,l,~,[,],<,>
 
 " This needs to be at the end of the file, so it's not re-overridden:
 set paste " Disable auto indenting. Annoying when pasting. Although may want to change this back!
 
+" Colorschemes are downloaded to: ~/.vim/colors
+colorscheme PerfectDark
