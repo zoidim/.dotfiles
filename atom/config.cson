@@ -19,6 +19,19 @@
     xml:
       end_with_newline: true
       indent_size: 2
+  "autoclose-html":
+    forceInline: [
+      "title"
+      "h1"
+      "h2"
+      "h3"
+      "h4"
+      "h5"
+      "h6"
+      "th"
+      "td"
+    ]
+    legacyMode: true
   core:
     audioBeep: false
     automaticallyUpdate: false
