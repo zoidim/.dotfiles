@@ -1,6 +1,6 @@
 [user]
-	name = Stephen Wrathall
-	email = stephen.wrathall@agworld.com.au
+	name = Raphael Ramos
+	email = raphael.ramos@agworld.com.au
 [alias]
 	co = checkout
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
@@ -12,7 +12,7 @@
 [core]
 	editor = vim
 [github]
-	user = stwr667
+	user = zoidim
 [merge]
 	keepBackup = false;
 	tool = p4merge
@@ -33,4 +33,3 @@
 	tool = diffmerge
 [difftool "diffmerge"]
 	cmd = diffmerge $LOCAL $REMOTE
-

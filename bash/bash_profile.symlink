@@ -64,7 +64,8 @@ export HISTTIMEFORMAT="%h/%d - %H:%M:%S "
 
 # This must be below the PATH command above, otherwise the 'node' in /usr/local/bin overrides nvm:
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+source $(brew --prefix nvm)/nvm.sh
 
 source ~/bin/git-completion.bash
 

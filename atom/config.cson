@@ -41,7 +41,7 @@
     projectHome: "/Users/swrathal/code"
     themes: [
       "one-dark-ui"
-      "monokai"
+      "atom-dark-syntax"
     ]
   editor:
     preferredLineLength: 120
