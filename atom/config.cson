@@ -38,7 +38,8 @@
     disabledPackages: [
       "spell-check"
     ]
-    projectHome: "/Users/swrathal/code"
+    projectHome: "/Users/raphael/Projects"
+    telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
       "atom-dark-syntax"
@@ -51,6 +52,9 @@
     userId: "d671f9f3-1eff-8ad5-bcf4-867c4c413247"
   "find-and-replace":
     scrollToResultOnLiveSearch: true
+  "git-plus":
+    general:
+      _analyticsUserId: "6a0e53b8-57cb-4c0a-8ae3-978ad43d1aee"
   linter:
     gutterEnabled: false
     ignoreMatchedFiles: "**/@(schema|main_menu).rb"
