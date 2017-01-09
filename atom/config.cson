@@ -61,7 +61,8 @@
     lintOnFly: false
     showErrorPanel: false
   "linter-rubocop":
-    command: "rubocop -c /Users/swrathal/code/website/.rubocop.yml"
+    command: "/Users/raphael/.rvm/gems/ruby-2.3.1@agworld-4.1/wrappers/rubocop -c /Users/raphael/Projects/website/.rubocop.yml"
+    disableWhenNoConfigFile: true
   "toggle-quotes": {}
   welcome:
     showOnStartup: false

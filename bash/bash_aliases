@@ -26,6 +26,7 @@ alias gl-pretty='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=sh
 alias gb-recent='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"
 alias la='ls -al'
 alias brs='bundle exec rails s'
+alias brunify='PORT=3001 bundle exec rails s'
 alias brsu='unicorn -p 3000 -c config/unicorn.rb'
 alias brc='bundle exec rails c'
 alias brcs='spring stop && bundle exec rails c'
