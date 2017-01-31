@@ -63,6 +63,9 @@
   "linter-rubocop":
     command: "/Users/raphael/.rvm/gems/ruby-2.3.1@agworld-4.1/wrappers/rubocop -c /Users/raphael/Projects/website/.rubocop.yml"
     disableWhenNoConfigFile: true
+  "todo-show":
+    sortAscending: false
+    sortBy: "Path"
   "toggle-quotes": {}
   welcome:
     showOnStartup: false
