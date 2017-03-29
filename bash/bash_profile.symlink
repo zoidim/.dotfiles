@@ -16,6 +16,7 @@ export PGDATA='/usr/local/var/postgres/'
 #UPDATE: Shouldn't need these params. Re-installing postgres from brew fixed this issue:
 #sudo sysctl -w kern.sysv.shmall=65536
 #sudo sysctl -w kern.sysv.shmmax=16777216
+export PATH=/usr/local/Cellar/postgresql94/9.4.9_1/bin:$PATH
 ### END POSTGRES###
 
 # Running bundle install doesn't work for website because of libv8 needing native extensions.
@@ -73,3 +74,6 @@ source ~/bin/git-completion.bash
 
 # rvm needs to be at the bottom of the file in case there are other lines in .[ba|z]shrc that redefine path:
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function into a shell session
+
+source ~/.bashrc
+export PATH=/Library/Frameworks/GDAL.framework/Programs:$PATH

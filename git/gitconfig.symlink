@@ -17,6 +17,7 @@
 	keepBackup = false;
 	tool = p4merge
 	defaultToUpstream = true
+	ff = false
 [push]
 	default = upstream
 [mergetool "diffmerge"]
@@ -33,3 +34,5 @@
 	tool = diffmerge
 [difftool "diffmerge"]
 	cmd = diffmerge $LOCAL $REMOTE
+[pull]
+	ff = true

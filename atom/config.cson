@@ -34,10 +34,6 @@
     legacyMode: true
   core:
     audioBeep: false
-    automaticallyUpdate: false
-    disabledPackages: [
-      "spell-check"
-    ]
     projectHome: "/Users/raphael/Projects"
     telemetryConsent: "limited"
     themes: [
@@ -45,6 +41,7 @@
       "atom-dark-syntax"
     ]
   editor:
+    fontSize: 12
     preferredLineLength: 120
     showIndentGuide: true
     tabType: "soft"
@@ -55,18 +52,19 @@
   "git-plus":
     general:
       _analyticsUserId: "6a0e53b8-57cb-4c0a-8ae3-978ad43d1aee"
-  linter:
-    gutterEnabled: false
-    ignoreMatchedFiles: "**/@(schema|main_menu).rb"
-    lintOnFly: false
-    showErrorPanel: false
+  linter: {}
   "linter-rubocop":
     command: "/Users/raphael/.rvm/gems/ruby-2.3.1@agworld-4.1/wrappers/rubocop -c /Users/raphael/Projects/website/.rubocop.yml"
     disableWhenNoConfigFile: true
+  "linter-ui-default":
+    panelHeight: 48
+    showPanel: true
   "todo-show":
     sortAscending: false
     sortBy: "Path"
   "toggle-quotes": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
   whitespace:
